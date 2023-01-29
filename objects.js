@@ -29,11 +29,62 @@ const people = {
   
   //! ASSIGMENT
   //? person2'nin adini ve maasini yazdiriniz.
-  console.log(people)
-  console.log(people.person2.name)
-  console.log(people.person2.salary)
+  // console.log(people)
+  // console.log(people.person2.name)
+  // console.log(people.person2.salary)
   
+  console.log(people.person2.name);
+  console.log(people.person2.salary);
   //? people objesindeki tum salary 'leri yazdirin (Dongu kullanilmal
 
-  
-  
+  for(let p in people){
+  console.log(people[p]);
+  console.log(people[p].name);
+  console.log(people[p].salary);
+}
+    // FOR OF
+console.log(Object.keys(people));
+console.log(Object.values(people));
+console.log(Object.entries(people));
+
+for (let a of Object.keys(people)){
+  console.log(a);
+}
+ 
+for (let a of Object.values(people)){
+  console.log(a);
+}
+
+for (let a of Object.entries (people)){
+  console.log(a);
+}
+
+for (let [x,y] of Object.entries (people)){
+  console.log(x,y);
+}
+
+// ARRAY METODU İLE OBCET LERE ERİŞME
+Object.keys(people).forEach( p => console.log(p));
+console.log("***********");
+
+Object.values(people).forEach( p => console.log(p.name));
+console.log("***********");
+
+// job değeri developer olanları yazdır
+const devs = Object.values(people).filter( p => (p.job) === "developer");
+console.log(devs);
+console.log("***********");
+
+// job değeri developer olanların dob değerlerini yazdır
+
+Object.values(people)
+.filter( p => p.job === "developer")
+.forEach(p=> console.log(p.dob));
+console.log("***********");
+// job değeri developer olanların dob değerlerini döndür
+const dobs = Ob ject.values(people)
+.filter( p => p.job === "developer")
+.map(p=> p.dob);
+console.log(dobs);
+
+
