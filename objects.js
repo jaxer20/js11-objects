@@ -82,9 +82,62 @@ Object.values(people)
 .forEach(p=> console.log(p.dob));
 console.log("***********");
 // job değeri developer olanların dob değerlerini döndür
-const dobs = Ob ject.values(people)
+const dobs = Object.values(people)
 .filter( p => p.job === "developer")
 .map(p=> p.dob);
 console.log(dobs);
 
+console.log("***********");
 
+// JSON
+
+const team = [
+  { name: "Josh", surname: "Adams", job: "developer", age: 30 },
+  { name: "Mary", surname: "Bary", job: "tester", age: 22 },
+  { name: "Hazel", surname: "Nut", job: "developer", age: 20 },
+] //* JSON
+
+console.log(team[1]);
+
+// örn:team dizisindeki job ları tek tek yazdırın
+team.forEach(p=> console.log(p.job))
+
+//* Ornek2: age'leri bir artirarak yeni bir diziye saklayiniz.
+const newAges = team.map(p=> p.age+1)
+console.log(newAges); 
+
+// /* Ornek3: name ve surname'leri birlestirip buyuk harfe ceviren ve
+// /* bunu fullName key'i olarak saklayan, ayni zamanda age degerlerini 5
+// // /* arttirarak age key'ine saklayan ve olusan diziyi donduren kodu yazınız. 
+// 
+const teamFullName = team.map(p=> {
+return{
+  fullName: (p.name +" "+ p.surname).toUpperCase(),
+  age: p.age+5
+}
+})
+console.log(teamFullName);
+
+const x = team.map(p=> ({
+y: p.name.toLocaleUpperCase()+ " " + p.surname.toUpperCase(),
+age: p.age + 5,
+}))
+console.log(x);
+
+const z = team.map(p=> ({
+    y: (p.name +" "+ p.surname).toUpperCase(),
+    age: p.age+5,
+  }))
+  console.log(z);
+
+  //* Ornek: teamFullName dizisindeki 30 yasindan kucuk ve esit olanlarin isimlerini diziye saklayiniz.
+ const under30 = teamFullName
+ .filter(p=> p.age<30)
+ .map(p=> p.fullName)
+ console.log(under30);
+
+ //* Ornek6: ortalama yasi hesaplayiniz.
+const avgAges= teamFullName
+.reduce((a,b)=>a+b .age,0)/
+teamFullName.length
+console.log(avgAges);
