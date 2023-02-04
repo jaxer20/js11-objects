@@ -75,11 +75,20 @@ const devs = Object.values(people).filter( p => (p.job) === "developer");
 console.log(devs);
 console.log("***********");
 
+// tekrarda kendim yazdım true\false yazdırdı
+Object.values(people)
+.filter(p=> console.log((p.job)==="developer"))
+
 // job değeri developer olanların dob değerlerini yazdır
 
 Object.values(people)
 .filter( p => p.job === "developer")
 .forEach(p=> console.log(p.dob));
+
+const yy = Object.values(people)
+.filter(p=> (p.job)==="developer")
+.forEach(p=> (p.dob));
+console.log(yy);
 console.log("***********");
 // job değeri developer olanların dob değerlerini döndür
 const dobs = Object.values(people)
